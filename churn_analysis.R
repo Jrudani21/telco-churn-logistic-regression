@@ -1,6 +1,6 @@
 # ============================================================
 # Telco Customer Churn: Logistic Regression
-# STAT 4000 Portfolio Project 2 — R Implementation
+# STAT 4000 Portfolio Project 2  R Implementation
 # Author: Jrudani21
 # ============================================================
 
@@ -130,7 +130,7 @@ cat(sprintf("\nAUC = %.4f\n", auc(roc_obj)))
 
 png("figures/05_roc_curve.png", width = 600, height = 500)
 plot(roc_obj,
-     main  = sprintf("ROC Curve — Logistic Regression (AUC = %.3f)", auc(roc_obj)),
+     main  = sprintf("ROC Curve  Logistic Regression (AUC = %.3f)", auc(roc_obj)),
      col   = "steelblue",
      lwd   = 2,
      print.auc = TRUE)
