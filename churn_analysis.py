@@ -1,6 +1,6 @@
 # ============================================================
 # Telco Customer Churn: Logistic Regression
-# STAT 4000 Portfolio Project 2 — Python Implementation
+# STAT 4000 Portfolio Project 2  Python Implementation
 # Author: Jrudani21
 # ============================================================
 
@@ -205,14 +205,14 @@ ax.axvline(1, color="red", linestyle="--", lw=1.5)
 ax.set_yticks(range(len(sig)))
 ax.set_yticklabels(sig.index, fontsize=8)
 ax.set_xlabel("Odds Ratio (95% CI)")
-ax.set_title("Significant Churn Predictors — Odds Ratios\n(OR > 1 = higher churn risk)")
+ax.set_title("Significant Churn Predictors  Odds Ratios\n(OR > 1 = higher churn risk)")
 ax.grid(axis="x", alpha=0.3)
 plt.tight_layout()
 plt.savefig("figures/py_03_odds_ratios.png", dpi=150)
 plt.show()
 
 # %% [markdown]
-# ## 7. Results Summary — R vs Python Comparison
+# ## 7. Results Summary  R vs Python Comparison
 
 # %%
 print("=" * 60)
@@ -228,5 +228,5 @@ print(f"{'F1 (Churn)':<35} {report['1']['f1-score']:.4f}")
 print("=" * 60)
 print("\nBusiness Insights:")
 print("• Month-to-month → Two-year contract reduces churn odds dramatically")
-print("• Adding TechSupport reduces churn — bundle it at onboarding")
+print("• Adding TechSupport reduces churn  bundle it at onboarding")
 print("• Target retention campaigns at new customers (tenure < 12 months)")
