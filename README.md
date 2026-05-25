@@ -1,6 +1,6 @@
-# 📞 Will They Stay or Will They Go? — Telco Customer Churn Analysis
+# 📞 Will They Stay or Will They Go?  Telco Customer Churn Analysis
 
-> **Can we predict which customers will cancel their telecom subscription — and why?**  
+> **Can we predict which customers will cancel their telecom subscription  and why?**  
 > Logistic regression in both R and Python on 7,043 customer records.
 
 ❗[ROC Curve](figures/py_02_evaluation.png)
@@ -27,7 +27,7 @@ Customer churn is one of the most costly problems in subscription businesses. Th
 3. Evaluate model performance using AUC, confusion matrix, and classification report
 4. Deliver actionable business recommendations
 
-The same analysis is done in **both R and Python** — comparing coefficients across both implementations.
+The same analysis is done in **both R and Python**  comparing coefficients across both implementations.
 
 ---
 
@@ -35,9 +35,9 @@ The same analysis is done in **both R and Python** — comparing coefficients ac
 
 | Property | Detail |
 |---|---|
-| **Source** | [Kaggle — Telco Customer Churn (IBM)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) |
+| **Source** | [Kaggle  Telco Customer Churn (IBM)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) |
 | **Size** | 7,043 customers × 21 columns (11 blanks dropped → 7,032 clean rows) |
-| **Target** | `Churn` — Yes (26.6%) / No (73.4%) |
+| **Target** | `Churn`  Yes (26.6%) / No (73.4%) |
 | **License** | IBM Sample Data via Kaggle |
 
 ### Key Variables
@@ -115,7 +115,7 @@ The same analysis is done in **both R and Python** — comparing coefficients ac
 3. **Decision rule:** Reject H₀ if p-value ≤ α
 4. **Test statistic:** χ² (from Type II likelihood-ratio test)
 5. **p-value < 0.001**
-6. **Conclusion:** Reject H₀ — contract type significantly predicts churn
+6. **Conclusion:** Reject H₀  contract type significantly predicts churn
 
 ---
 
@@ -127,7 +127,7 @@ The same analysis is done in **both R and Python** — comparing coefficients ac
 
 3. **Target new customers aggressively.** Churn risk is highest in the first 12 months of tenure. A proactive outreach program in months 1–6 could significantly improve lifetime value.
 
-4. **Fiber optic customers are high-risk.** Despite paying more, fiber customers churn at higher rates — possibly due to price sensitivity or competition. Investigate service quality and pricing.
+4. **Fiber optic customers are high-risk.** Despite paying more, fiber customers churn at higher rates  possibly due to price sensitivity or competition. Investigate service quality and pricing.
 
 ---
 
