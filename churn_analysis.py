@@ -155,7 +155,7 @@ axes[0].set_title("Confusion Matrix")
 RocCurveDisplay.from_predictions(
     y_test, y_pred_prob, ax=axes[1],
     name=f"Logistic Regression (AUC={roc_auc_score(y_test,y_pred_prob):.3f})",
-    color="steelblue"
+    curve_kwargs={"color": "steelblue"}
 )
 axes[1].plot([0, 1], [0, 1], "k--", lw=1)
 axes[1].set_title("ROC Curve")
@@ -171,7 +171,7 @@ plt.show()
 # Use statsmodels for interpretable coefficients
 # One-hot encode categoricals first
 df_model = pd.get_dummies(
-    df[features + ["Churn_bin"]], drop_first=True
+    df[features + ["Churn_bin"]], drop_first=True, dtype=float
 )
 df_model.columns = [c.replace(" ", "_").replace("-", "_")
                     for c in df_model.columns]

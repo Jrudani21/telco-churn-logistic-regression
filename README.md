@@ -3,7 +3,7 @@
 > **Can we predict which customers will cancel their telecom subscription  and why?**  
 > Logistic regression in both R and Python on 7,043 customer records.
 
-❗[ROC Curve](figures/py_02_evaluation.png)
+Plots are written to `figures/` when you run the scripts; they are not committed.
 
 ---
 
@@ -59,7 +59,7 @@ The same analysis is done in **both R and Python**  comparing coefficients acros
 
 ## Methods
 
-### R (`R/churn_analysis.R`)
+### R (`churn_analysis.R`)
 | Step | Function | Package |
 |---|---|---|
 | Data cleaning | `drop_na()`, `as.numeric()` | tidyverse |
@@ -71,7 +71,7 @@ The same analysis is done in **both R and Python**  comparing coefficients acros
 | ROC / AUC | `roc()`, `auc()` | pROC |
 | Hypothesis test | `Anova(type = "II")` | car |
 
-### Python (`Python/churn_analysis.py`)
+### Python (`churn_analysis.py`)
 | Step | Function | Package |
 |---|---|---|
 | Data cleaning | `pd.to_numeric(errors="coerce")` | pandas |
@@ -91,30 +91,30 @@ The same analysis is done in **both R and Python**  comparing coefficients acros
 | Metric | R | Python (sklearn) |
 |---|---|---|
 | **AUC** | ~0.84 | ~0.84 |
-| Accuracy | ~0.80 | ~0.77 |
-| Precision (Churn) | ~0.65 | ~0.60 |
-| Recall (Churn) | ~0.55 | ~0.70 |
+| Accuracy | ~0.81 | ~0.73 |
+| Precision (Churn) | ~0.64 | ~0.50 |
+| Recall (Churn) | ~0.56 | ~0.80 |
 
-> Both implementations converge to the same AUC ≈ 0.84, validating the analysis.
+> Both implementations reach AUC ≈ 0.84 (R 0.845, Python 0.835). The Python model (`class_weight="balanced"`) catches more churners (recall 0.80) at the cost of precision (0.50); the R model is the opposite. Both were re-run on R 4.6 and scikit-learn 1.9 with the IBM copy of the dataset.
 
 ### Top Churn Drivers (Odds Ratios)
 
 | Predictor | Direction | Interpretation |
 |---|---|---|
-| Two-year contract | ↓ churn | ~75% lower odds vs month-to-month |
-| One-year contract | ↓ churn | ~40% lower odds vs month-to-month |
+| Two-year contract | ↓ churn | ~74% lower odds vs month-to-month (OR 0.25 R, 0.26 Python) |
+| One-year contract | ↓ churn | ~45% lower odds vs month-to-month (OR 0.55 R, 0.52 Python) |
 | Fiber optic internet | ↑ churn | Higher churn vs DSL |
 | No TechSupport | ↑ churn | Customers without support churn more |
 | No OnlineSecurity | ↑ churn | Security add-on linked to retention |
 | Tenure (per month) | ↓ churn | Longer customers are more loyal |
-| Paperless billing | ↑ churn | Slight increase in churn risk |
+| Paperless billing | ↑ churn | About 45% higher odds (OR 1.46, Python) |
 
 ### 6-Step Hypothesis Test: Contract Effect
 1. **α = 0.05**
 2. **H₀:** β_One-year = β_Two-year = 0 (no contract effect on churn)
 3. **Decision rule:** Reject H₀ if p-value ≤ α
-4. **Test statistic:** χ² (from Type II likelihood-ratio test)
-5. **p-value < 0.001**
+4. **Test statistic:** χ²(2) = 58.8 (Type II likelihood-ratio test, R `car::Anova`)
+5. **p-value < 0.001** (1.7e-13)
 6. **Conclusion:** Reject H₀  contract type significantly predicts churn
 
 ---
@@ -141,13 +141,13 @@ The same analysis is done in **both R and Python**  comparing coefficients acros
 ### R
 ```r
 install.packages(c("tidyverse","broom","caret","pROC","car"))
-source("R/churn_analysis.R")
+source("churn_analysis.R")
 ```
 
 ### Python
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn statsmodels
-python Python/churn_analysis.py
+python churn_analysis.py
 ```
 
 ---
