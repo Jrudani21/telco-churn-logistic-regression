@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Janak Rudani. All rights reserved.
+# Provenance: Jrudani21/telco-churn-logistic-regression/churn_analysis.R e2967828b61bf1bd
 # ============================================================
 # Telco Customer Churn: Logistic Regression
 # STAT 4000 Portfolio Project 2  R Implementation
